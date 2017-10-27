@@ -1,0 +1,40 @@
+@charset "utf-8";
+BODY { margin:0px; padding:0px; COLOR: #666}
+UL, P{PADDING: 0px; MARGIN: 0px;}
+A {COLOR: #333}
+A:hover {COLOR: #e51a45; TEXT-DECORATION: none}
+
+#imgPlay {
+	OVERFLOW: hidden; WIDTH: 770px; ZOOM: 1; POSITION: relative; HEIGHT: 240px
+}
+#imgPlay .imgs IMG {
+	BORDER-RIGHT: #dbdbdb 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #dbdbdb 1px solid; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; BORDER-LEFT: #dbdbdb 1px solid; WIDTH: 766px; height:236px; PADDING-TOP: 1px; BORDER-BOTTOM: #dbdbdb 1px solid
+}
+#imgPlay .imgs LI {
+	FLOAT: left; POSITION: relative
+}
+#imgPlay .imgs {
+	WIDTH: 4620px
+}
+#imgPlay .prev {
+	BACKGROUND: url(../images/imgPlayer.png) no-repeat 0px 0px; LEFT: 1px; WIDTH: 46px; CURSOR: pointer; TEXT-INDENT: -9999px; POSITION: absolute; TOP: 80px; HEIGHT: 56px
+}
+#imgPlay .next {
+	BACKGROUND: url(../images/imgPlayer.png) no-repeat 0px 0px; LEFT: 1px; WIDTH: 46px; CURSOR: pointer; TEXT-INDENT: -9999px; POSITION: absolute; TOP: 80px; HEIGHT: 56px
+}
+#imgPlay .next {
+	BACKGROUND-POSITION: right 0px; RIGHT: 1px; LEFT: auto
+}
+#imgPlay .num {
+	DISPLAY: inline; LEFT: 700px; POSITION: absolute; TOP: 210px; HEIGHT: 19px;
+}
+#imgPlay .num SPAN {
+	DISPLAY: inline-block; BACKGROUND: url(../images/imgPoint.png) no-repeat -19px -1px; MARGIN: 0px 2px; OVERFLOW: hidden; WIDTH: 14px; CURSOR: pointer; LINE-HEIGHT: 0; HEIGHT: 13px; 
+}
+#imgPlay .num SPAN.on {
+	BACKGROUND-POSITION: 1px -1px;
+}
+
+#imgPlay #numInner {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: none transparent scroll repeat 0% 0%; PADDING-BOTTOM: 0px; PADDING-TOP: 3px; POSITION: absolute; left:600px; TOP: 210px; TEXT-ALIGN: center
+}

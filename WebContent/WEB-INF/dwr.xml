@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN" "http://www.getahead.ltd.uk/dwr/dwr10.dtd">
+<dwr>
+	<allow>
+		<create creator="new" javascript="userdwr">
+			<param name="class" value="com.dnow.action.user.UserAction"/>
+			<include method="ajax_check"/>
+		</create>
+		<create creator="new" javascript="productdwr">
+			<param name="class" value="com.dnow.action.product.ProductAction"/>
+			<include method="search_list"/>
+		</create>
+		<create creator="new" javascript="cartdwr">
+			<param name="class" value="com.dnow.action.shopping.CartAction"/>
+			<include method="changeCount"/>
+			<include method="getnumber"/>
+			<include method="getstorage"/>
+		</create>
+	</allow>
+</dwr>
+<!-- END SNIPPET: dwr -->

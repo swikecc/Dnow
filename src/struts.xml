@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.action.excludePattern" value="/dwr/.*,/dwr/test/.*" />
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<package name="default" namespace="/" extends="struts-default">
+		<global-results>
+		<result name="error">error.jsp</result>
+		</global-results>
+		<action name="valcode" class="com.dnow.action.main.ValcodeAction">
+			<result type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputstream</param>
+			</result>
+		</action>
+		
+		<action name="product*" class="com.dnow.action.product.ProductAction" method="{1}">
+			<result>${nextpage }</result>
+			<result name="success_pro" type="redirect">${nextpage }</result>
+			<param name="pagesize">12</param>
+		</action>
+		
+		<action name="history*" class="com.dnow.action.product.HistoryAction" method="{1}">
+			<result>${nextpage }</result>
+		</action>
+	</package>
+	<include file="struts-main.xml"></include>
+	<include file="struts-user.xml"></include>
+	<include file="struts-shop.xml"></include>
+	<include file="struts-product.xml"></include>
+	<include file="struts-order.xml"></include>
+	<include file="struts-admin.xml"></include>
+	<include file="struts-manager.xml"></include>
+</struts>

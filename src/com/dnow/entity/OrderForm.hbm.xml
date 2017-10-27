@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-8-26 13:47:59 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.dnow.entity.OrderForm" table="order_form" catalog="dnow">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="com.dnow.entity.User" fetch="select">
+            <column name="uid" not-null="true" />
+        </many-to-one>
+        <property name="address" type="string">
+            <column name="address" length="50" not-null="true" />
+        </property>
+        <property name="orderid" type="string">
+            <column name="orderid" length="16" not-null="true" />
+        </property>
+        <property name="state" type="int">
+            <column name="state" not-null="true" />
+        </property>
+        <property name="time" type="timestamp">
+            <column name="time" length="19" not-null="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="20" not-null="true" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="11" not-null="true" />
+        </property>
+        <property name="count" type="java.lang.Integer">
+            <column name="count" length="11" not-null="true" />
+        </property>
+        <property name="total" type="java.lang.Float">
+            <column name="total" not-null="true" />
+        </property>
+        <set name="orderItems" table="order_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="oid" not-null="true" />
+            </key>
+            <one-to-many class="com.dnow.entity.OrderItem" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-8-26 13:47:59 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.dnow.entity.Product" table="product" catalog="dnow">
+        <id name="pid" type="java.lang.Integer">
+            <column name="pid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="brand" class="com.dnow.entity.Brand" fetch="select">
+            <column name="bid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="category" class="com.dnow.entity.Category" fetch="select">
+            <column name="category_id" not-null="true" />
+        </many-to-one>
+        <property name="pname" type="string">
+            <column name="pname" length="50" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="200" not-null="true" />
+        </property>
+        <property name="price" type="float">
+            <column name="price" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="discount" type="float">
+            <column name="discount" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="storage" type="int">
+            <column name="storage" not-null="true" />
+        </property>
+        <property name="addtime" type="timestamp">
+            <column name="addtime" length="19" not-null="true" />
+        </property>
+        <property name="hasDeleted" type="int">
+            <column name="has_deleted" not-null="true" />
+        </property>
+        <property name="picture" type="string">
+            <column name="picture" length="50" not-null="true" />
+        </property>
+        <set name="orderItems" table="order_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pid" not-null="true" />
+            </key>
+            <one-to-many class="com.dnow.entity.OrderItem" />
+        </set>
+        <set name="comments" table="comment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PID" not-null="true" />
+            </key>
+            <one-to-many class="com.dnow.entity.Comment" />
+        </set>
+    </class>
+</hibernate-mapping>

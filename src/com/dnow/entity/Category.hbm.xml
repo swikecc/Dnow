@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-8-16 17:32:55 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.dnow.entity">
+    <class name="Category" table="category" catalog="dnow">
+        <id name="cid" type="java.lang.Integer">
+            <column name="cid" />
+            <generator class="identity" />
+        </id>
+        <property name="cname" type="string">
+            <column name="category" length="50" not-null="true" />
+        </property>
+        <many-to-one name="supercategory" class="Category">
+			<column name="parentid"></column>
+		</many-to-one>
+		<set name="subcategories" table="category" order-by="cid">
+			<key column="parentid"></key>
+			<one-to-many class="Category"/>
+		</set>
+        <set name="products" table="product" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="category_id" not-null="true" />
+            </key>
+            <one-to-many class="com.dnow.entity.Product" />
+        </set>
+    </class>
+</hibernate-mapping>

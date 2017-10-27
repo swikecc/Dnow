@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-8-26 13:47:59 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.dnow.entity.OrderItem" table="order_item" catalog="dnow">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="product" class="com.dnow.entity.Product" fetch="select">
+            <column name="pid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="order" class="com.dnow.entity.OrderForm" fetch="select">
+            <column name="oid" not-null="true" />
+        </many-to-one>
+        <property name="count" type="int">
+            <column name="count" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
